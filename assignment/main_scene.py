@@ -23,6 +23,8 @@ GRADING CRITERIA:
 """
 
 import maya.cmds as cmds
+import sys
+sys.path.append(r"/Users/mattmac/Documents/GitHub/week-3-assignment-002-MattGreve/assignment")
 import scene_functions as sf
 
 # ---------------------------------------------------------------------------
@@ -35,22 +37,41 @@ ground = cmds.polyPlane(name="ground", width=60, height=60,
                         subdivisionsX=1, subdivisionsY=1)[0]
 
 # ---------------------------------------------------------------------------
-# TODO: Build your scene below by calling functions from scene_functions.
-#
-# Example calls (uncomment and modify once your functions are implemented):
-#
-#   sf.create_building(width=5, height=10, depth=5, position=(-10, 0, 8))
-#   sf.create_tree(position=(3, 0, -5))
-#   sf.create_fence(length=12, post_count=7, position=(-6, 0, -3))
-#   sf.create_lamp_post(position=(8, 0, 2))
-#
-#   # Place 8 trees in a circle of radius 15:
-#   sf.place_in_circle(sf.create_tree, count=8, radius=15)
-#
-# Remember: call each function at least once, and aim for 15+ objects.
+# ---------------------------------------------------------------------------
+# Build Scene: Small Park with Surrounding Buildings
 # ---------------------------------------------------------------------------
 
+# Create 4 buildings
+# Create buildings around the edges of the scene
+sf.create_building(width=6, height=12, depth=6, position=(-15, 0, 15))
+sf.create_building(width=5, height=10, depth=5, position=(15, 0, 15))
+sf.create_building(width=7, height=14, depth=7, position=(-15, 0, -15))
+sf.create_building(width=6, height=11, depth=6, position=(15, 0, -15))
 
+
+# 10 trees in a circle
+# Central park area
+trees = sf.place_in_circle(
+    sf.create_tree,
+    count=10,
+    radius=10,
+    center=(0, 0, 0),
+    trunk_height=3,
+    canopy_radius=2
+)
+
+
+# Fence (1 group with multiple parts)
+# Fence along one side of the park
+sf.create_fence(length=20, post_count=8, position=(-10, 0, 12))
+
+
+# Lamp posts (4 total)
+# Place lamps along a path
+sf.create_lamp_post(position=(-5, 0, 0))
+sf.create_lamp_post(position=(5, 0, 0))
+sf.create_lamp_post(position=(0, 0, 5))
+sf.create_lamp_post(position=(0, 0, -5))
 # ---------------------------------------------------------------------------
 # Final viewport framing (do not remove).
 # ---------------------------------------------------------------------------

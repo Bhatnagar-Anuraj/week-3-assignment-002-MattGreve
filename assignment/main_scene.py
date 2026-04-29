@@ -48,7 +48,6 @@ sf.create_building(width=5, height=10, depth=5, position=(15, 0, 15))
 sf.create_building(width=7, height=14, depth=7, position=(-15, 0, -15))
 sf.create_building(width=6, height=11, depth=6, position=(15, 0, -15))
 
-
 # 10 trees in a circle
 # Central park area
 trees = sf.place_in_circle(
@@ -60,11 +59,9 @@ trees = sf.place_in_circle(
     canopy_radius=2
 )
 
-
 # Fence (1 group with multiple parts)
 # Fence along one side of the park
 sf.create_fence(length=20, post_count=8, position=(-10, 0, 12))
-
 
 # Lamp posts (4 total)
 # Place lamps along a path

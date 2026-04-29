@@ -169,5 +169,4 @@ def place_in_circle(create_func, count=8, radius=10, center=(0, 0, 0),
         obj = create_func(position=(x, center[1], z), **kwargs)
         cmds.parent(obj, group)
         results.append(obj)
-
     return results
